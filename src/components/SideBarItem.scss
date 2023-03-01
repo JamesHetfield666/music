@@ -1,0 +1,61 @@
+@import "../assets/scss/app.scss";
+
+
+.side-bar-item-wrapper{
+  .side-bar-item-heading{
+    color: $pink-color;
+    margin: 40px 0 15px;
+  }
+  .side-bar-item-section{
+    height: 35px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover:before{
+      content: "";
+      width: 2.5px;
+      height: inherit;
+      background: $green-color;
+      position: absolute;
+      left: 0;
+      animation: test forwards .2s;
+    }
+    .side-bar-item{
+      display: flex;
+      align-items: center;
+      color: $white-color;
+      height: inherit;
+      &:hover:before{
+        content: "";
+        width: 250px;
+        height: inherit;
+        background: linear-gradient(90deg, rgba(36, 186, 112, 0.55) 0%, rgba(18, 25, 44, 0.27) 24.16%);
+        position: absolute;
+        left: 0;
+        animation: test forwards .2s;
+      }
+      .side-bar-item_label{
+        font-size: 14px;
+        margin-left: 15px;
+        z-index: 1;
+      }
+      .side-bar-item_icon{
+        z-index: 1;
+      }
+      &:hover{
+        svg{
+          color: $green-color;
+        }
+      }
+    }
+  }
+}
+
+@keyframes test {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
