@@ -1,61 +1,53 @@
 @import "../assets/scss/app.scss";
 
+*{
+  text-decoration: none;
+}
 
-.side-bar-item-wrapper{
-  .side-bar-item-heading{
+.side-bar__item{
+  border-radius: 0px 5px 5px 0px;
+  transition: .2s;
+  color: $white-color;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  height: 35px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  .side-bar__item-icon{
+    margin-right: 15px;
+  }
+  .side-bar__item-label{
+    font-size: 14px;
+  }
+  &:hover{
+    background: #e73c7e52;
+  }
+}
+
+.side-bar__item-group{
+  margin-top: 40px;
+  .side-bar__group-heading{
+    padding: 0 25px;
     color: $pink-color;
-    margin: 40px 0 15px;
-  }
-  .side-bar-item-section{
-    height: 35px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    &:hover:before{
-      content: "";
-      width: 2.5px;
-      height: inherit;
-      background: $green-color;
-      position: absolute;
-      left: 0;
-      animation: test forwards .2s;
-    }
-    .side-bar-item{
-      display: flex;
-      align-items: center;
-      color: $white-color;
-      height: inherit;
-      &:hover:before{
-        content: "";
-        width: 250px;
-        height: inherit;
-        background: linear-gradient(90deg, rgba(36, 186, 112, 0.55) 0%, rgba(18, 25, 44, 0.27) 24.16%);
-        position: absolute;
-        left: 0;
-        animation: test forwards .2s;
-      }
-      .side-bar-item_label{
-        font-size: 14px;
-        margin-left: 15px;
-        z-index: 1;
-      }
-      .side-bar-item_icon{
-        z-index: 1;
-      }
-      &:hover{
-        svg{
-          color: $green-color;
-        }
-      }
-    }
+    margin-bottom: 15px;
   }
 }
 
-@keyframes test {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
+.side-bar__item_active{
+  .side-bar__item{
+    animation: gradient-animate forwards .5s cubic-bezier(0.4, 0, 1, 1);
+    background: linear-gradient(90deg, rgba(231, 60, 126, 0.3215686275), rgba(35, 166, 213, 0.231372549), rgb(49 157 155));
+    transform: translate3d(0, 0, 0);
+    background-size: 400% 400%;
   }
 }
 
+@keyframes gradient-animate {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}

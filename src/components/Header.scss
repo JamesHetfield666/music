@@ -1,0 +1,75 @@
+@import "../assets/scss/app.scss";
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .search-control{
+    display: flex;
+    align-items: center;
+    .search-control__search-icon{
+      width: 20px;
+      height: 20px;
+      color: $gray-color;
+    }
+    .search-control__input-container{
+      position: relative;
+      margin-left: 15px;
+      .search-control__input{
+        border: none;
+        outline: none;
+        background: none;
+        color: $gray-color;
+        font-size: 16px;
+        width: 300px;
+        padding: 7px 0;
+        &::placeholder{
+          color: $gray-color;
+          font-size: 15px;
+          padding-left: 5px;
+        }
+        &:focus ~ .search-control_focus-border{
+          width: 100%;
+          transition: 0.2s ease-in-out;
+        }
+      }
+      .search-control_focus-border{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: $gray-color;
+        transition: 0.4s;
+      }
+    }
+  }
+  .navigation-panel{
+    display: flex;
+    align-items: center;
+    .navigation-panel__icon{
+      width: 24px;
+      height: 24px;
+      color: $gray-color;
+      margin-right: 35px;
+      cursor: pointer;
+      transition: .3s;
+      padding: 5px;
+      border-radius: 50px;
+      transition: .2s;
+      &:hover{
+        background: #6da0da33;
+      }
+    }
+    .navigation-panel__avatar{
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      background-position: center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+      box-shadow: 0px 0px 5px 5px #0a0a0a73;
+    }
+  }
+}
+

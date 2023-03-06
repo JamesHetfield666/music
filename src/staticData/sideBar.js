@@ -15,13 +15,13 @@ const sideBar = [
   {
     id: 2,
     label: "BROWSE",
-    path: "/",
+    path: "/page1",
     icon: FiSearch,
   },
   {
     id: 3,
     label: "RADIO",
-    path: "/",
+    path: "/page2",
     icon: IoRadio,
   },
   {
@@ -46,6 +46,28 @@ const sideBar = [
         label: "ARTISTS",
         path: "/",
         icon: BiUser,
+      },
+    ],
+  },
+  {
+    id: 8,
+    groupName: "playlist",
+    heading: "PLAYLIST",
+    children: [
+      {
+        id: 9,
+        label: "RECENTLY PLAYED",
+        path: "/",
+      },
+      {
+        id: 10,
+        label: "FAVORITE SONGS",
+        path: "/",
+      },
+      {
+        id: 11,
+        label: "ARTISTS",
+        path: "/",
       },
     ],
   },

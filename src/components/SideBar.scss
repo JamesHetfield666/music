@@ -1,11 +1,21 @@
 @import "../assets/scss/app.scss";
 
-.side-bar{
-  padding: 25px;
-  width: 300px;
-  height: 100%;
+ .side-bar{
+  min-width: 300px;
   background: $side-bar-background;
-  .side-bar_items{
+  .side-bar__logo{
+    padding: 25px;
+  }
+  .side-bar__items{
     margin-top: 80px;
   }
-}
+  .side-bar__carriage{
+   width: 2.5px;
+   height: 35px;
+   background: $green-color;
+   position: absolute;
+   left: 0;
+   transition: .7s;
+   box-shadow: rgb(0 0 0 / 58%) 2px 0px 5px 5px;
+  }
+ }
