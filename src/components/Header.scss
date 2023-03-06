@@ -29,17 +29,20 @@ header{
           padding-left: 5px;
         }
         &:focus ~ .search-control_focus-border{
+          animation: gradient-animate forwards 2s;
           width: 100%;
           transition: 0.2s ease-in-out;
         }
       }
       .search-control_focus-border{
+        background: linear-gradient(90deg, rgb(255 255 255 / 72%), rgba(35, 166, 213, 0.231372549), rgb(49, 157, 155));
+        transform: translate3d(0, 0, 0);
+        background-size: 400% 400%;
         position: absolute;
         bottom: 0;
         left: 0;
         width: 0;
         height: 1px;
-        background-color: $gray-color;
         transition: 0.4s;
       }
     }
@@ -61,6 +64,16 @@ header{
         background: #6da0da33;
       }
     }
+    .navigation-panel__icon_spinning{
+      &:hover{
+        transform: rotate(40deg);
+      }
+    }
+    .navigation-panel__icon_ringing{
+      &:hover{
+        animation: ringing-effect forwards .3s;
+      }
+    }
     .navigation-panel__avatar{
       border-radius: 50px;
       width: 50px;
@@ -73,3 +86,23 @@ header{
   }
 }
 
+@keyframes ringing-effect {
+  20%{
+    transform: rotate(20deg);
+  }
+  50%{
+    transform: rotate(-20deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes gradient-animate-border{
+	0% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 100% 0%;
+	}
+}

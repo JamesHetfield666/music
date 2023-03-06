@@ -37,7 +37,7 @@
 .side-bar__item_active{
   .side-bar__item{
     animation: gradient-animate forwards .5s cubic-bezier(0.4, 0, 1, 1);
-    background: linear-gradient(90deg, rgba(231, 60, 126, 0.3215686275), rgba(35, 166, 213, 0.231372549), rgb(49 157 155));
+    background: linear-gradient(90deg, rgba(231, 60, 126, 0.3215686275), rgba(35, 166, 213, 0.231372549), #2aac8569);
     transform: translate3d(0, 0, 0);
     background-size: 400% 400%;
   }

@@ -10,12 +10,12 @@ const Header = () => {
         <FiSearch className="search-control__search-icon" />
         <div className="search-control__input-container">
           <input className="search-control__input" placeholder="Search for songs, artists..." />
-          <span className="search-control_focus-border"></span>
+          <div className="search-control_focus-border"></div>
         </div>
       </div>
       <div className="navigation-panel">
-        <AiOutlineSetting className="navigation-panel__icon" />
-        <MdOutlineNotificationsNone className="navigation-panel__icon" />
+        <AiOutlineSetting className="navigation-panel__icon navigation-panel__icon_spinning" />
+        <MdOutlineNotificationsNone className="navigation-panel__icon navigation-panel__icon_ringing" />
         <div
           className="navigation-panel__avatar"
           style={{
