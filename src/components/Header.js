@@ -2,10 +2,13 @@ import "./Header.scss";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineSetting } from "react-icons/ai";
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import { BiRightArrowAlt } from "react-icons/bi";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({ setSideBarShow }) => {
   return (
     <header className="header">
+      <BiRightArrowAlt className="header__arrow-icon" onClick={() => setSideBarShow(true)} />
       <div className="search-control">
         <FiSearch className="search-control__search-icon" />
         <div className="search-control__input-container">
@@ -26,6 +29,14 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  setSideBarShow: PropTypes.func,
+};
+
+Header.defaultProps = {
+  setSideBarShow: null,
 };
 
 export default Header;

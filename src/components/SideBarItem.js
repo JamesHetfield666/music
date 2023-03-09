@@ -7,31 +7,40 @@ import { NavLink } from "react-router-dom";
 const SideBarItem = ({ item, carriageHandler, index }) => {
   const Icon = item.icon;
 
-  const elements = useRef([]);
-
-  const setActive = ({ isActive }) => (isActive ? "side-bar__item_active" : "");
+  const sideBarItem = useRef(null);
 
   useEffect(() => {
-    const element = elements[index];
-    if (element && [...element.classList].includes("side-bar__item_active"))
-      carriageHandler(element.firstElementChild);
+    if (sideBarItem.current && sideBarItem.current.classList.contains("side-bar__item_active")) {
+      carriageHandler(sideBarItem.current);
+    }
   }, []);
+
+  const setActive = isActive => (isActive ? "side-bar__item_active" : "");
 
   return (
     <>
       {item.children && item.children.length ? (
         <div className="side-bar__item-group">
-          <div className="side-bar__group-heading">{item.heading}</div>
+          <div className="side-bar__group-head">
+            <div className="side-bar__group-heading">{item.heading}</div>
+            {Icon && <Icon className="side-bar__group-head-icon" />}
+          </div>
           {item.children.map(child => (
             <SideBarItem carriageHandler={carriageHandler} item={child} key={child.id} />
           ))}
         </div>
       ) : (
-        <NavLink to={item.path} className={setActive} ref={ref => (elements[index] = ref)}>
-          <div className="side-bar__item" onClick={event => carriageHandler(event.target)}>
-            {Icon && <Icon className="side-bar__item-icon" />}
-            {item.label && <span className="side-bar__item-label">{item.label}</span>}
-          </div>
+        <NavLink to={item.path}>
+          {({ isActive }) => (
+            <div
+              ref={sideBarItem}
+              className={`side-bar__item ${setActive(isActive)}`}
+              onClick={event => carriageHandler(event.target)}
+            >
+              {Icon && <Icon className="side-bar__item-icon" />}
+              {item.label && <span className="side-bar__item-label">{item.label}</span>}
+            </div>
+          )}
         </NavLink>
       )}
     </>
@@ -51,7 +60,7 @@ SideBarItem.propTypes = {
 };
 
 SideBarItem.defaultProps = {
-  item: [],
+  item: {},
   carriageHandler: null,
   index: 0,
 };

@@ -1,13 +1,32 @@
 @import "../assets/scss/app.scss";
 
  .side-bar{
+  overflow: auto;
   min-width: 300px;
+  position: relative;
   background: $side-bar-background;
+  height: 100vh;
   .side-bar__logo{
     padding: 25px;
+    display: flex;
+    align-items: center;
+    .side-bar__arrow-icon{
+      display: none;
+      position: absolute;
+      right: 0;
+      color: #e1e1e1;
+      padding: 4px;
+      border-radius: 5px 0px 0px 5px;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      box-shadow: inset 5px 5px 7px 1px #00000075;
+      z-index: 1;
+    }
   }
   .side-bar__items{
-    margin-top: 80px;
+    margin-top: 30px;
+    white-space: pre;
   }
   .side-bar__carriage{
    width: 2.5px;
@@ -16,6 +35,24 @@
    position: absolute;
    left: 0;
    transition: .7s;
-   box-shadow: rgb(0 0 0 / 58%) 2px 0px 5px 5px;
   }
- }
+  @media screen and (max-width: $md-breakpoint) {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 0px;
+    min-width: 0;
+    transition: min-width 0.2s cubic-bezier(0.04, 0.96, 0.21, 1.35);
+    .side-bar__arrow-icon{
+      display: block !important;
+    }
+  }
+}
+
+.side-bar_showing{
+  min-width: 300px;
+  box-shadow: 5px 0px 35px 5px rgb(0 0 0 / 15%);
+  @media screen and (max-width: $xs-breakpoint) {
+    width: 100%;
+  }
+}

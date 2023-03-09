@@ -4,6 +4,7 @@ import { IoRadio } from "react-icons/io5";
 import { FiClock } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const sideBar = [
   {
@@ -53,6 +54,7 @@ const sideBar = [
     id: 8,
     groupName: "playlist",
     heading: "PLAYLIST",
+    icon: AiOutlinePlus,
     children: [
       {
         id: 9,
